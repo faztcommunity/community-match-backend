@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import path from "path";
 import routes from "./routes/index";
-
+import { Server } from "http";
 export class App {
   private app: Application;
 
@@ -23,8 +23,7 @@ export class App {
     this.app.use(routes);
   }
 
-  async listen(): Promise<void> {
-    this.app.listen(this.app.get("port"));
-    console.log(`Server on port ${this.app.get("port")}`);
+  listen(callback: Function = () => console.log(`Server listening on port ${this.app.get('port')}`)): Server {
+    return this.app.listen(this.app.get("port"), callback());
   }
 }
