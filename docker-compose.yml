@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: community-match
+    image: node:14
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000
+    links:
+      - mongo
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: community-match-mongo
+    image: mongo
+    ports:
+      - 27017:27017
+    logging:
+      driver: none
