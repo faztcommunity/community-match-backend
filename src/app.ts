@@ -23,7 +23,7 @@ export default class App {
     this.app.use(routes);
   }
 
-  listen(callback: Function = () => console.log(`Server listening on port ${this.app.get('port')}`)): Server {
-    return this.app.listen(this.app.get("port"), callback());
+  listen(callback: Function = () => console.log(`Server listening on port ${this.app.get('port')}`)): void {
+    this.app.listen(this.app.get("port"), callback());
   }
 }
