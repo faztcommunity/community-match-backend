@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import path from "path";
 import routes from "./routes/index";
 import { Server } from "http";
-export class App {
+export default class App {
   private app: Application;
 
   constructor(private port?: number | string) {
