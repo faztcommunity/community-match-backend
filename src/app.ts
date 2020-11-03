@@ -3,7 +3,7 @@ import path from "path";
 import routes from "./routes/index";
 import { Server } from "http";
 export default class App {
-  private app: Application;
+  public app: Application;
 
   constructor(private port?: number | string) {
     this.app = express();
