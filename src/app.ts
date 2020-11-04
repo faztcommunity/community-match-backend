@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import path from "path";
+import morgan from "morgan";
 import routes from "./routes/index";
 
 export class App {
@@ -16,6 +17,8 @@ export class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
 
+    this.app.use(morgan('dev'));
+    
     this.app.use(express.static(path.join(__dirname, "public")));
   }
 
