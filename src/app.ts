@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config()
 import express, { Application } from "express";
 import path from "path";
 import routes from "./routes/index";
+import './database'
 
 export class App {
   private app: Application;
