@@ -1,0 +1,6 @@
+{
+  "ignore": ["node_modules"],
+  "exec": "ts-node",
+  "ext": ".ts",
+  "watch": ["src"]
+}

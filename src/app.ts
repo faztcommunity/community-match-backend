@@ -1,7 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config()
 import express, { Application } from "express";
 import path from "path";
 import routes from "./routes/index";
-import { Server } from "http";
+import './database';
+
 export default class App {
   public app: Application;
 
