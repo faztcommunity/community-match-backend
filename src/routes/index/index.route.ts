@@ -1,6 +1,6 @@
-import {  Request, Response, NextFunction, Router } from "express";
-import jwt from "express-jwt";
+import { Router } from "express";
 import { indexController } from "./index.controller";
+import { userController } from "../users/user.controller";
 
 class IndexRoute {
   public router: Router = Router();
@@ -10,13 +10,7 @@ class IndexRoute {
   }
 
   routes(): void {
-    this.router.use("/", jwt({ secret: process.env.JWT_SECRET as string, algorithms: ["HS256"] }), 
-      (err: Error, req: Request, res: Response, next: NextFunction) => {
-        if (err.name === "UnauthorizedError") {
-          return res.status(401).json({ error: "Unauthorized"});
-        }
-        next();
-      });
+    this.router.use("/", userController.verifyJWT);
     this.router.route("/").get(indexController.getIndex);
   }
 }
