@@ -5,9 +5,9 @@ if you want more information please join our [discord server](https://discord.gg
 ## Basic rules
 the commits will have to be like this:
 
-`git commit -m "feat/fix/refactor/hotfix/docs: commit description"` 
+`git commit -m "feat/fix/refactor/hotfix/docs: commit description"`
 
-branchs will have to be like this: 
+branchs will have to be like this:
 
 `called as the name of the task/issue/action`
 
@@ -37,16 +37,16 @@ press clone button  and you should see something like this :
 `remind this is an example you do not have to copy the same link`
 
 ![enter image description here](https://i.imgur.com/SDQhXbL.png)
- 
+
  then click here
   ![enter image description here](https://i.imgur.com/CaGONxD.png)
 
-and in your clipboard you should have somthing like this 
+and in your clipboard you should have somthing like this
 
 `https://github.com/YOUR_GITHUB_USERNAME/community-match-backend.git`
 
 and in your system run :
-`git clone https://github.com/faztcommunity/community-match-backend.git`
+`git clone https://github.com/YOUR_GITHUB_USERNAME/community-match-backend.git`
 
 **4. - make changes and commit it**
 to avoid future conflicts between your fork and the main repository, you should run this command:
