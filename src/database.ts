@@ -1,15 +1,24 @@
-import mongoose from "mongoose";
+import mongoose, { ConnectionOptions, Error } from "mongoose";
 
-const URI = process.env.MONGODB_URI || "mongodb://localhost/match" //get URI from the env file or use this as the default
+export class Database {
+  private URI: string;
+  private options: ConnectionOptions;
 
-mongoose.connect(URI, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-})
+  constructor() {
+    //get URI from the env file or use this as the default
+    this.URI = process.env.MONGODB_URI || "mongodb://localhost/match-db";
+    this.options = {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    };
+  }
 
-mongoose.connection.once("open", () => {
-  console.log("DB is connected");
-})
-
+  async connect(): Promise<void> {
+    await mongoose.connect(this.URI, this.options, (error: Error) => {
+      if (error) console.log(error.message);
+      console.log("DB is connected");
+    });
+  }
+}
