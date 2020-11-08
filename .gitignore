@@ -1,4 +1,13 @@
+# dependencies
 node_modules
+
+# production
 dist/
-.env
+
+# locks
 package-lock.json
+yarn.lock
+
+# env files
+.env.local
+.env.example
